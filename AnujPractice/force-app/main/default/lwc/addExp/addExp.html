@@ -1,0 +1,32 @@
+<template>
+
+    
+    <lightning-layout multiple-rows>
+        <lightning-layout-item size='11' padding='around-small'>
+           
+            <!-- <lightning-input label='Title'  value={title} onchange={handletitle}></lightning-input> -->
+           <div class="slds-form-element">
+                <label class="slds-form-element__label" for="text-input-id-1" style='font-size: 15px;'>Title</label>
+                <div class="slds-form-element__control">
+                <input type="text" id="text-input-id-1" onchange={handletitle} style='font-size: medium;' class="slds-input" />
+                </div>
+            </div>
+        </lightning-layout-item>
+   
+        <lightning-layout-item size='12' padding='around-small'>
+            <!-- <lightning-input-rich-text label='Description' value={desc}  onchange={handledesc}></lightning-input-rich-text> -->
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="textarea-id-01" style='font-size: 15px;'>Description</label>
+            <div class="slds-form-element__control">
+            <textarea id="textarea-id-01" placeholder="Description" onchange={handledesc}
+                             style='font-size: medium;' class="slds-textarea"></textarea>
+            </div>
+        </div>
+        
+        </lightning-layout-item>
+            <lightning-layout-item size='12' padding='around-small'>
+            <a  class='button'  onclick={addexp}>Add Experience</a> 
+        </lightning-layout-item>   
+         </lightning-layout>     
+    
+</template>

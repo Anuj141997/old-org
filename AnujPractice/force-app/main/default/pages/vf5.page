@@ -1,0 +1,14 @@
+<apex:page controller="custctrl4">
+	<apex:pageBlock title="Fruit List">
+        <apex:pageBlockSection >
+        	<ul>
+                <apex:repeat value="{!fruit}" var="fru">
+            
+                    <li>{!fru}</li>
+           		 </apex:repeat>
+            </ul>
+        </apex:pageBlockSection>
+    
+    </apex:pageBlock>
+
+</apex:page>

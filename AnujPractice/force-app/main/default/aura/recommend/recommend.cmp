@@ -1,0 +1,40 @@
+<aura:component controller = "recomnd"
+            implements="flexipage:availableForallpagetypes,force:hasRecordId" access="global" >
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="Reclist" type="Recommendation__c[]" />
+     <aura:attribute name="liked" default="false" type="Boolean" />
+	<aura:handler name="init" value="{!this}" action="{!c.myAction}" />
+   
+    
+<div class="slds-scrollable" style="height:20rem;width:24rem">
+  <lightning:card iconName="standard:work_capacity_usage" title="Related Recommendations">
+      <hr/>
+    
+            <aura:if isTrue="{!not(empty(v.Reclist))}">
+            <aura:iteration items='{!v.Reclist}' var='r'>
+
+                <lightning:card title='{!r.Header__c}'>
+	               <div class="slds-p-top_x-small">
+               			{!r.Recommend__c}
+                  </div>  
+                
+              <div class="slds-m-around_medium">
+        	<lightning:buttonIconStateful iconName="utility:like" selected="{! v.liked }"
+                  onclick="{! c.handleLikeButtonClick }" alternativeText="Like"  />
+    			</div>
+             
+                </lightning:card>
+            </aura:iteration>
+            
+            
+            
+            
+         <aura:set attribute="else">
+                <div Style="text-align : center">  There are no related Recommendations </div>
+            </aura:set>
+        </aura:if>
+    </lightning:card>
+        </div>
+    
+    
+</aura:component>

@@ -1,0 +1,41 @@
+.container {
+    border: 2px solid rgb(199, 83, 83);
+    border-radius: 15px;
+    
+    margin:5px;
+    padding: 1rem;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    
+   flex-direction: column;
+   justify-content: center;
+   
+    cursor: pointer;
+}
+.select {
+    border: 2px solid rgb(23, 8, 155);
+        border-radius: 15px;
+    background-color: rgb(107, 182, 211);
+  margin:5px;
+    padding: 1rem;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    
+   flex-direction: column;
+   justify-content: center;
+   
+    cursor: pointer;
+   
+}
+.container:hover > p{
+    color: hotpink;
+}
+
+p:hover {
+    color: hotpink;
+}
+ a {
+  color: inherit;
+  }

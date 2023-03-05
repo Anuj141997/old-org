@@ -1,0 +1,35 @@
+.c-container {
+    border: 1px solid darkgrey;
+    margin: 10px 0 20px 0;
+    width: 950px;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
+    background-color:rgb(228, 227, 227);
+    
+}
+.c-container2 {
+    border: 1px solid darkgrey;
+    margin: 10px 0 20px 0;
+    width: 350px;
+    height: fit-content; 
+    
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    background-color:lightgrey;
+}
+.c-container3 {
+    border: 1px solid #afbcd6;
+    margin-left:5px;
+    
+    width: 90%;
+    height: 50px;
+    padding-left: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+    background-color:darkgrey;
+}

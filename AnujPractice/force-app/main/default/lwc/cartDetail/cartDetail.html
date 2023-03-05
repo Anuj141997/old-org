@@ -1,0 +1,244 @@
+<template>
+    <lightning-card title='Cart Detail' icon-name="utility:cart">
+        <div class='slds-m-around_small'>
+             <lightning-layout multiple-rows="true">
+                    <lightning-layout-item padding="around-small" size="12">
+                        <lightning-layout>
+
+                            <div class="c-container">
+
+                                <!-- isProceed true -->
+
+                                <template if:true={isProceed}>
+                                    <lightning-layout-item size='9'>
+                                        <div class='page-section page-main'>
+                                            <div class="slds-grid slds-wrap slds-m-top_small">
+                                                <div class="slds-col slds-size_1-of-2">
+                                            <template if:true={totalAdd}>
+                                                <div class='slds-p-around_small'>
+                                                    <h1> ADDRESS BOOK</h1>
+                                                                                                               
+                                                </div>
+                                                <template for:each={addressDet} for:item="addr">
+                                                    <c-address-comp onaddress={handleAddressSelect} 
+                                                        address={addr} key={addr.Id}>
+                                                    </c-address-comp>
+                                                </template>
+                                                  <div class="slds-m-top_small">
+                                                   
+                                                    <lightning-button label="Add New Address" variant="brand"
+                                                         onclick={handleAddNewAddress} >
+                                                    </lightning-button>&nbsp;&nbsp;
+                                                    <lightning-button label="View Cart" variant="natural"
+                                                          onclick={backtocart} >
+                                                    </lightning-button>&nbsp;&nbsp;
+                                                    <lightning-button label="Place Order" variant="natural"
+                                                            onclick={placeOrder} >
+                                                    </lightning-button>
+                                                </div>
+                                            </template>
+                                        </div>
+
+                                            <template if:true={selectadd}>
+                                                <div class='slds-col slds-size_1-of-2'>
+                                                    <strong>
+                                                        You have selected this address as your primary delivery Address.
+                                            
+                                                    </strong>
+                                                    <p>Items will be deliver here :</p>
+                                                    <br/>
+                                                    <lightning-formatted-address 
+                                                        street={selectadd.Street__c}
+                                                        city={selectadd.City__c}
+                                                        country={selectadd.Country__c}
+                                                        postal-code={selectadd.Postal_Code__c}
+                                                        province={selectadd.State__c} 
+                                                        disabled>
+                                                    </lightning-formatted-address>
+                                                </div>
+                                            </template>
+                                        </div>
+                                            <template if:false={totalAdd}>
+                                                <h2>ADDRESS DETAILS</h2>
+                                                <lightning-input value={addr.Street__c}
+                                                    label="Street"
+                                                    name="Street__c"
+                                                    onchange={handleInputChange}
+                                                    
+                                                     >
+                                                </lightning-input>
+                                                <lightning-input value={addr.City__c}
+                                                    label="City" 
+                                                    name="City__c"
+                                                    onchange={handleInputChange}
+                                                    
+                                                    >
+                                                </lightning-input>
+                                                <lightning-input value={addr.State__c}
+                                                    label="State" 
+                                                    name="State__c"
+                                                    onchange={handleInputChange}>
+                                                </lightning-input>
+                                                <lightning-input value={addr.Country__c}
+                                                    label="Country"
+                                                    name="Country__c"
+                                                    onchange={handleInputChange} >
+                                                </lightning-input>
+                                                <lightning-input value={addr.Postal_Code__c}
+                                                    label="Postal Code" 
+                                                    name="Postal_Code__c"
+                                                    onchange={handleInputChange}>
+                                                </lightning-input>
+                                                <br/>
+                                                <lightning-button label="Save Address"
+                                                  variant="brand" onclick={handleSaveAddress} >
+                                                </lightning-button>&nbsp;&nbsp;
+                                                <lightning-button label="Cancel"
+                                                variant="natural" onclick={cancel} >
+                                              </lightning-button>
+                                            </template>
+                                        </div>
+                                    </lightning-layout-item>
+
+                                </template>
+
+                                <!-- isProceed False -->
+
+                                <template if:false={isProceed}>
+                            <lightning-layout-item  size="9">
+                                <div class="page-section page-main">
+                                    <h2 class="slds-text-title_caps" style="height: 55px;
+                                                background: darkseagreen;
+                                                line-height: 3;
+                                                padding-left: 10px;
+                                                font-size: 19px;
+                                                font-weight: bold;">
+                                        SHOPPING CART( {totalItems} items)
+                                    </h2>
+                                    <template if:false={totalItems}>
+                                        <img src={emptycart} width='500' height='500' />
+                                        <div class="slds-m-top_medium slds-m-bottom_small">
+                                        <p style='color:rgb(39, 37, 37); font-family: Helvetica, sans-serif;'>
+                                             There are no items in your Cart.
+                                        <a href='JavaScript:void(0);' onclick={handleContinue}>
+                                            Add Items</a></p>
+                                            </div>
+                                    </template>
+
+                                    <template if:true={totalItems}>
+                                        <div class="slds-grid slds-wrap slds-m-top_small">
+                                            <div class="slds-col slds-size_1-of-4">Item Name</div>
+                                            <div class="slds-col slds-size_1-of-4"><b>Price</b></div>
+                                            <div class="slds-col slds-size_1-of-4"><b>Quantity</b></div>
+                                            <div class="slds-col slds-size_1-of-4"> </div>
+                                        </div>
+                                        <div>
+                                            <template for:each={Items} for:item="cart">
+                                                <c-cart-items item={cart} key={cart.Id} ondelete={handledelete}></c-cart-items>
+                                            </template>
+                                        </div>
+                                        <div class="slds-m-top_medium slds-m-bottom_small">
+                                            <lightning-button-group>
+                                                <lightning-button label="Continue Shopping"
+                                                    variant="natural"
+                                                    onclick={handleContinue}
+                                                ></lightning-button> 
+                                                <lightning-button label="Proceed Checkout"
+                                                    variant="brand"
+                                                    onclick={handleProceed}
+                                                ></lightning-button>
+                                            </lightning-button-group>
+                                        </div>
+                                    </template>
+                                   
+                                 </div>
+                            </lightning-layout-item>
+                        </template>    
+                        </div>
+
+
+                            <div class='c-container2'>
+                            <lightning-layout-item  size="3">
+                                <div class="page-section page-right">
+                                    
+                                    
+                                        <div class="c-container3">
+                                            
+                                            <b>Subtotal ({totalItems} items):</b>
+                                            &nbsp;
+                                            <lightning-formatted-number 
+                                                currency-code="USD"
+                                                format-style="currency"
+                                                currency-display-as="symbol"
+                                                maximum-fraction-digits="2"
+                                                value={totalAmount} >
+                                            </lightning-formatted-number>
+                                        </div>
+                                        <div class="slds-m-top_small">
+                                            <strong>Have a coupon? </strong>
+                                            <a href="JavaScript:void(0);" onclick={handleCoupon} >
+                                                Apply Here
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <template if:true={isCoupon}>
+                                                    <lightning-input type='text'
+                                                        label='Provide Valid Coupoun'
+                                                        value={couponName}
+                                                        onchange={handleChangeCoupon}
+                                                        onkeydown={handleChangeCoupon}
+                                                        onkeypress={handleChangeCoupon}
+                                                        onkeyup={handleChangeCoupon}
+                                                        onblur={handleChangeCoupon}></lightning-input>
+                                            <p class='slds-m-top_small'>
+                                                <template if:true={applybutton}>
+                                                <lightning-button label='Apply Coupon'
+                                                 onclick={applyCoupon} variant='brand'
+                                                 >
+                                                </lightning-button>
+                                            </template>
+                                            <template if:false={applybutton}>
+                                                <!-- <lightning-button label='Apply Coupon'
+                                                 onclick={applyCoupon} variant='brand' disabled>
+                                                </lightning-button>
+                                                &nbsp; -->
+                                                <lightning-button label='Remove Coupon'
+                                                onclick={removeCoupon} variant='destruction'>
+                                               </lightning-button>
+                                            </template>
+
+                                            </p>
+                                            </template>
+                                            <template if:true={couponValue}>
+                                                Coupon &nbsp;
+                                                <lightning-formatted-number 
+                                                    currency-code="USD"
+                                                    format-style="currency"
+                                                    currency-display-as="symbol"
+                                                    maximum-fraction-digits="2"
+                                                    value={couponValue} >
+                                                </lightning-formatted-number>
+                                                &nbsp;
+                                                applied successfully
+                                            </template>
+                                            
+                                        </div>
+                                        <div class="slds-m-top_small">
+                                            
+                                                <lightning-button label="Continue Shopping"
+                                                    variant="natural"
+                                                    onclick={handleContinue}
+                                                ></lightning-button> 
+                                           
+                                        </div>
+                                </div>
+                            </lightning-layout-item>
+                            </div>
+                        </lightning-layout>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        
+    </lightning-card>
+    
+</template>

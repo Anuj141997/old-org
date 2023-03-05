@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title='Account Detail' icon-name="standard:account"  ondrop={drop} ondragover={dragover} >
+        <div style='text-align:center;'>
+            {msg} </div>
+       <lightning-record-form if:true={accountId} object-api-name="Account" record-id={accountId} fields={fields}>
+
+        </lightning-record-form>
+    
+    </lightning-card>
+    
+</template>

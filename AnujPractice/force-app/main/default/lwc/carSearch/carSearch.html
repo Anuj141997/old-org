@@ -1,0 +1,25 @@
+<template>
+    <div style=" font-family: Arial, Helvetica, sans-serif;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    margin: top 10px;">
+       
+                     <div class='slds-var-m-around_x-small'>
+                    <lightning-combobox
+                        name='carTypes'
+                        label='Car Types'
+                        value={selvalue}
+                        variant="label-hidden"
+                        placeholder='All Types'
+                        options={options}
+                        onchange={selectChange}></lightning-combobox>
+                        
+                    </div>
+              
+                    <lightning-button label='New' onclick={newCarType}></lightning-button>
+        
+    </div>
+    
+</template>

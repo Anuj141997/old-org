@@ -1,0 +1,214 @@
+<template>
+
+    <lightning-card title='Custom Application' icon-name="custom:custom45">
+
+        
+        <div style='display:flex; flex-direction: column; gap: 10px;
+                    padding: 1rem 0 0 2rem; '>
+            <lightning-button label='Create Contact' variant='brand' onclick={conModal}></lightning-button>
+            <lightning-button label='Create Case' variant='brand' onclick={caseModal}></lightning-button>
+            <lightning-button label='Report' variant='brand' onclick={report}></lightning-button>
+        </div>
+        
+    </lightning-card>
+
+     <section role="dialog" if:true={showCon} tabindex="-1" aria-labelledby="modal-heading-01"
+     aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open" >
+        <div class="slds-modal__container" >
+        <header class="slds-modal__header">
+            <lightning-button-icon icon-name="utility:close" variant='bare' onclick={closemodal}
+                alternative-text="Close Window" style='float: right;'>
+            </lightning-button-icon>
+        
+        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">New Contact</h2>
+        </header>
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" >
+          
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small" title="General Information">General Information</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+              <lightning-layout multiple-rows="true">
+                  <lightning-layout-item size="6" padding="around-small" >
+                      <lightning-input type='text' label='First Name'></lightning-input>
+                      
+                    </lightning-layout-item>
+                    <lightning-layout-item size='6' padding='around-small'>
+                       <lightning-input type='text' label='Last Name' required></lightning-input>
+                       
+                  </lightning-layout-item>
+                  <lightning-layout-item size='6' padding='around-small'>
+                       <lightning-input type='email' label='Email' required></lightning-input>
+                  </lightning-layout-item>
+                  <lightning-layout-item size='6' padding='around-small'>
+                       <lightning-input type='text' label='Phone' required></lightning-input>
+                      
+                  </lightning-layout-item>
+              </lightning-layout>
+                </div>
+                </div>
+
+             
+                <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small" title="Address Information">Address Information</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+              <lightning-layout >
+                  <lightning-layout-item size="6" padding="around-small" class='input__box'>
+                      <lightning-input type='text' label='City'></lightning-input>
+                       <lightning-input type='text' label='Country' ></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size='6' padding='around-small' class='input__box'>
+                       <lightning-input type='text' label='State'></lightning-input>
+                        <lightning-input type='text' label='ZipCode' required></lightning-input>
+                      
+                  </lightning-layout-item>
+              </lightning-layout>
+                </div>
+                </div>
+           
+
+                 <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small" title="Industry Information">Industry Information</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+              <lightning-layout multiple-rows="true">
+                  <lightning-layout-item size="6" padding="around-small" class='input__box'>
+                      <c-multi-pick-list options={options}
+                                        onvaluechange={handlechange}
+                                        label='Business Vertical'></c-multi-pick-list>
+                        <c-multi-pick-list options={options}
+                                        onvaluechange={handlechange}
+                                        label='Division of Vertical'></c-multi-pick-list>
+                    </lightning-layout-item>
+                    <lightning-layout-item size='6' padding='around-small' class='input__box'>
+                       <lightning-input type='date' label='Date procured' required></lightning-input>
+                       <c-multi-pick-list options={options}
+                                        onvaluechange={handlechange}
+                                        label='Area of Division'></c-multi-pick-list>
+                      
+                  </lightning-layout-item>
+              </lightning-layout>
+                </div>
+                </div>
+
+
+           
+        
+        </div>
+         <div class='slds-m-top_medium actions' align='center' >
+                <lightning-button label='Cancel' class='slds-m-top_small' onclick={reset}>
+
+                </lightning-button>
+            &nbsp;<lightning-button class='slds-m-top_small' label='Save' type='submit' 
+                    variant='brand' ></lightning-button>             
+            </div>
+        </div>
+        </section>
+
+
+         <section role="dialog" if:true={showCase} tabindex="-1" aria-labelledby="modal-heading-01"
+     aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open" >
+        <div class="slds-modal__container" >
+        <header class="slds-modal__header">
+            <lightning-button-icon icon-name="utility:close" variant='bare' onclick={closemodal}
+                alternative-text="Close Window" style='float: right;'>
+            </lightning-button-icon>
+        
+        <h2 id="modal-heading-02" class="slds-modal__title slds-hyphenate">New Contact</h2>
+        </header>
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2" >
+          
+            <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small" title="General Information">General Information</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+              <lightning-layout multiple-rows="true">
+                  <lightning-layout-item size="6" padding="around-small" >
+                      <lightning-input type='text' label='First Name'></lightning-input>
+                      
+                    </lightning-layout-item>
+                    <lightning-layout-item size='6' padding='around-small'>
+                       <lightning-input type='text' label='Last Name' required></lightning-input>
+                       
+                  </lightning-layout-item>
+                  <lightning-layout-item size='6' padding='around-small'>
+                       <lightning-input type='email' label='Email' required></lightning-input>
+                  </lightning-layout-item>
+                  <lightning-layout-item size='6' padding='around-small'>
+                       <lightning-input type='text' label='Phone' required></lightning-input>
+                      
+                  </lightning-layout-item>
+              </lightning-layout>
+                </div>
+                </div>
+
+             
+                <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small" title="Address Information">Address Information</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+              <lightning-layout >
+                  <lightning-layout-item size="6" padding="around-small" class='input__box'>
+                      <lightning-input type='text' label='City'></lightning-input>
+                       <lightning-input type='text' label='Country' ></lightning-input>
+                    </lightning-layout-item>
+                    <lightning-layout-item size='6' padding='around-small' class='input__box'>
+                       <lightning-input type='text' label='State'></lightning-input>
+                        <lightning-input type='text' label='ZipCode' required></lightning-input>
+                      
+                  </lightning-layout-item>
+              </lightning-layout>
+                </div>
+                </div>
+           
+
+                 <div class="slds-section slds-is-open">
+                <h3 class="slds-section__title slds-theme_shade">
+                <span class="slds-truncate slds-p-horizontal_small" title="Industry Information">Industry Information</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+              <lightning-layout multiple-rows="true">
+                  <lightning-layout-item size="6" padding="around-small" class='input__box'>
+                      <c-multi-pick-list options={options}
+                                        onvaluechange={handlechange}
+                                        label='Business Vertical'></c-multi-pick-list>
+                        <c-multi-pick-list options={options}
+                                        onvaluechange={handlechange}
+                                        label='Division of Vertical'></c-multi-pick-list>
+                    </lightning-layout-item>
+                    <lightning-layout-item size='6' padding='around-small' class='input__box'>
+                       <lightning-input type='date' label='Date procured' required></lightning-input>
+                       <c-multi-pick-list options={options}
+                                        onvaluechange={handlechange}
+                                        label='Area of Division'></c-multi-pick-list>
+                      
+                  </lightning-layout-item>
+              </lightning-layout>
+                </div>
+                </div>
+
+
+           
+        
+        </div>
+         <div class='slds-m-top_medium actions' align='center' >
+                <lightning-button label='Cancel' class='slds-m-top_small' onclick={reset}>
+
+                </lightning-button>
+            &nbsp;<lightning-button class='slds-m-top_small' label='Save' type='submit' 
+                    variant='brand' ></lightning-button>             
+            </div>
+        </div>
+        </section>
+
+
+         <div class="slds-backdrop slds-backdrop_open" if:true={showCon}></div>
+        <div class="slds-backdrop slds-backdrop_open" if:true={showCase}></div>
+    
+</template>

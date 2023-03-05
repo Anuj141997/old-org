@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title='Create Case' icon-name="standard:case">
+                  
+                <div class='slds-m-around_medium'>
+                    <lightning-combobox
+                        name='Case Status'
+                        label='Case Status'
+                        value={selval1}
+                        placeholder='Select Case Status'
+                        options={statusval}
+                        onchange={select}></lightning-combobox>
+                       
+                    </div>
+
+                    <div class='slds-m-around_medium'>
+                        <lightning-combobox
+                            name='Case Priority'
+                            label='Case Priority'
+                            value={selval2}
+                            placeholder='Select Case Priority'
+                            options={prival}
+                            onchange={select}></lightning-combobox>
+                           
+                        </div>
+                        <div class='slds-m-around_medium'>
+                            <lightning-combobox
+                                name='Case Origin'
+                                label='Case Origin'
+                                value={selval3}
+                                placeholder='Select Case Origin'
+                                options={orival}
+                                onchange={select}></lightning-combobox>
+                               
+                            </div>
+
+            <div class='slds-m-around_small' align='center'>
+                <lightning-button label='Create' variant='brand' onclick={click}></lightning-button>
+            </div>
+        
+    </lightning-card>
+
+    
+</template>

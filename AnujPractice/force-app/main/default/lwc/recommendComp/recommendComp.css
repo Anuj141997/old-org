@@ -1,0 +1,52 @@
+.main {
+    background-color: rgb(228, 235, 236);
+       padding: 12px;
+        margin: 0px 10px 0px 10px;
+       
+         border: 1px solid rgba(153, 225, 238, 0.925);
+         border-left: 5px solid rgba(6, 128, 241, 0.925);
+}
+
+.main:hover {
+  border: 2px solid rgba(153, 225, 238, 0.925);  
+   border-left: 5px solid rgba(6, 128, 241, 0.925);
+}
+
+.header
+{
+    background-color:#f7f2f2f5;
+    font-size: large;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: 3px 10px 0px 10px;
+
+    
+}
+
+.bottom
+{
+    background-color:#f7f2f2f5;
+  
+   padding-top: 10px;
+   padding-bottom: 10px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    
+    margin: 0px 10px 5px 10px;
+
+}
+
+
+
+.text
+{
+    color:rgb(103, 109, 109)
+}
+
+.like
+{
+    display:flex;
+    padding-left: 15px;
+}

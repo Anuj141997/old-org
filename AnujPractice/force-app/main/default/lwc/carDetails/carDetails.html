@@ -1,0 +1,23 @@
+<template>
+
+    <template if:true={isdata}>
+        <lightning-card>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item size='12' >
+                <lightning-tabset active-tab-value={activetab}>
+                    <lightning-tab label='Car Detail' value='cardetail' onchange={handlechange}>
+                            <c-car-detail-tab car={car}></c-car-detail-tab>
+                    </lightning-tab>
+                    <lightning-tab label='Add Car Experience' value='aexp' onchange={handlechange}>
+                            <c-add-exp cid={carId} onexpadded={handleTabSwitch}></c-add-exp>
+                    </lightning-tab>
+                    <lightning-tab label='View Experience' value='vexp' onchange={handlechange}>
+                            <c-car-exp carid={carId}></c-car-exp>
+                    </lightning-tab>
+            
+                </lightning-tabset>
+            </lightning-layout-item>
+        </lightning-layout>
+        </lightning-card>
+        </template>
+</template>

@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title='Search Account'>
+    <lightning-input type='search' onchange={change} class='slds-m-bootom_small' label='Search' 
+            value={acName}></lightning-input>
+        </lightning-card> 
+       
+        <lightning-card title='Accounts list'>  
+            <template if:true={visible}>      
+        <template for:each={acclist} for:item='acc' for-index='index'>
+            <p class='slds-p-horizontall_small' key={acc.id}>{acc.Name}</p>
+        </template>
+    </template>
+
+    <template if:false={visible}>      
+            <p class='slds-p-horizontall_small'>No Record Found</p>
+        
+        </template>
+        </lightning-card>   
+    
+
+</template>

@@ -1,0 +1,12 @@
+<aura:component>
+
+<lightning:card  title='Lwc-Aura' iconName="custom:custom34">
+    <div>
+        <c:lwcaura oneven='{!c.handle}' aura:id='lwc'></c:lwcaura>
+    </div>
+    <div>
+        <lightning:button label='Lwc Method' variant='brand' onclick='{!c.handlelwc}'></lightning:button>
+    </div>
+</lightning:card>
+
+</aura:component>

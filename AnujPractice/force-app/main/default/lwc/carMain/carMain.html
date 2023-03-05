@@ -1,0 +1,21 @@
+<template>
+    <div style="margin-bottom: 10px;">
+
+        <div style="border-radius: 1px;
+                        border:1px solid rosybrown;">
+    <lightning-card title='Search for Car' icon-name="custom:custom26">
+        <c-car-search oncartype={carTypeHandler} onname={handleName}></c-car-search>
+        
+    </lightning-card>
+</div>
+    <lightning-card >
+        <h1 slot='title'>
+            <u>
+            Matching Cars for  &nbsp;<strong style='font-size:17px;
+                                            color:seagreen;'>{typeNm}</strong>
+            </u>
+        </h1>
+        <c-car-search-result cid={ctypeId}></c-car-search-result>
+    </lightning-card>
+    </div>
+</template>

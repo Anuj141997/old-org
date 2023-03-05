@@ -1,0 +1,14 @@
+<aura:component implements='flexipage:availableforAllPageTypes'>
+    <aura:attribute name='colorcode' type='String'/>
+    <lightning:card title='Change Color Text'>
+    	<aura:set attribute='actions'>
+            <c:colorPicker oncolor='{!c.apply}'/>
+        </aura:set>
+        <p class='slds-p-horizontal_small'>
+        	<div style='text-align: center; height: 30px;font-size:20px'>
+            	<b style="{!'color:'+v.colorcode}">Color Change</b>
+            </div>
+        </p>
+    </lightning:card>
+    
+</aura:component>

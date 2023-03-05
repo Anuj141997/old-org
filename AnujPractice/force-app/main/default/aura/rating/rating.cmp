@@ -1,0 +1,27 @@
+<aura:component controller="opprat" implements="force:hasRecordId,flexipage:availableForAllPageTypes">
+    <ltng:require styles="/resource/RatingPlugin/css/jquery.raty.css, /resource/SLDS0120/assets/styles/salesforce-lightning-design-system-ltng.css"
+                  scripts="/resource/RatingPlugin/js/jquery.js, /resource/RatingPlugin/js/jquery.raty.js"
+                  afterScriptsLoaded="{!c.doInit}"/>
+     
+    <aura:attribute type="ID" name="recordId"/>
+    <aura:attribute type="Integer" name="currentRating"/>
+    <aura:attribute type="Integer" name="newRating" default="0"/>
+    
+            <div class="slds-card__body">
+                <div class="loading-div">
+                    <div class="slds-spinner--small">
+                    <img src="/resource/SLDS0120/assets/images/spinners/slds_spinner_brand.gif" alt="Loading..."/>
+                </div>
+                </div>
+                <div aura:id="starRating" class="star-rating"></div>
+            </div>
+            <div class="slds-card__footer">
+                <div class="footer-contents">
+                    <div style="display: inline-block;">
+                        Current Rating: <span aura:id="rating">{!v.currentRating}&nbsp;star</span>
+                    </div>
+                </div>
+            </div>
+        
+    
+</aura:component>

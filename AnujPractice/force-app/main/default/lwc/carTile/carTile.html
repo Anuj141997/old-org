@@ -1,0 +1,14 @@
+<template>
+
+    <a onclick={handleclick}>
+    <div class={isCarselected} >
+        <img src={car.Picture__c} style='max-width: 100%;'>
+
+        <div style='display:flex; justify-content: center; align-items: center;'>
+            <strong style='font-size: large; color:royalblue;'>
+               <p> {car.Contact__r.Name}</p>
+            </strong>
+        </div>
+    </div>
+    </a>
+</template>

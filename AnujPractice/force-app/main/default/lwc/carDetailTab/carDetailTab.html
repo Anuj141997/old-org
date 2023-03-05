@@ -1,0 +1,45 @@
+<template>
+
+    <lightning-card title={carName} icon-name="utility:travel_and_places" style='background-color:rgb(161, 232, 235);'>
+        <div slot='actions'>
+            <lightning-button label='Full Details' variant='success' onclick={fulldetails}></lightning-button>
+        </div>
+        <lightning-layout multiple-rows='true'>
+            <lightning-layout-item size='4' >
+                <div class='slds-var-p-horizontal_small'>
+                    <div class='property'>
+                        <span class='label'>Owner Name:</span>
+                        <lightning-formatted-text value={ownerName}></lightning-formatted-text>
+                    </div>
+                     <div class='property'>
+                        <span class='label'>Type :</span>
+                        <lightning-formatted-text value={type}></lightning-formatted-text>
+                    </div>
+                     <div class='property'>
+                        <span class='label'>Build Year:</span>
+                        <lightning-formatted-number value={year}></lightning-formatted-number>
+                    </div>
+                     <div class='property'>
+                        <span class='label'>Per Day Rent:</span>
+                        <lightning-formatted-number value={rent} currency-code="USD"></lightning-formatted-number>
+                    </div>
+                     <div class='property'>
+                        <span class='label'>Mileage:</span>
+                        <lightning-formatted-number value={mileage}></lightning-formatted-number>
+                    </div>
+                     
+                </div>
+            </lightning-layout-item>
+              <lightning-layout-item size='8' >
+
+                    <img src={picture} class='pic slds-align_absolute-center' alt="Car Picture">
+
+              </lightning-layout-item>
+        </lightning-layout>
+        <div slot='footer'>
+            <span style='color: salmon;
+                            font-family: monospace; text-align: center;'>Rent A Car Project By ANUJ PANWAR</span>
+        </div>
+    </lightning-card>
+    
+</template>

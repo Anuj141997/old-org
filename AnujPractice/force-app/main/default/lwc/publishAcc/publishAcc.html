@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title='Account List'>
+    
+            <template for:each={accList} for:item='acc'>
+                <div key={acc.Id}>
+                    <a href='#' data-val={acc.Id} onclick={handleclick}>{acc.Name}</a>
+                </div>
+            </template>
+        </p>
+    </lightning-card>
+    
+</template>

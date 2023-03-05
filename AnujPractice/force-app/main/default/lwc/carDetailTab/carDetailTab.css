@@ -1,0 +1,20 @@
+.label
+{
+    font-weight: bold;
+    display: block;
+}
+
+.property
+{
+    margin-bottom: 3px;
+    
+}
+.pic{
+    border: 2px solid rgb(134, 165, 116);
+    border-radius: 5px;
+     background-repeat: no-repeat;
+    background-size: contain;
+    height: 160px;
+    margin-top: 2px; 
+    
+}

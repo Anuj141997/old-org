@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title='Combo Box for Account Type' icon-name="custom:custom67">
+        <p class='slds-p-horizontal_small'>
+            <template if:true={val.data}>
+                <div class='slds-m-around_medium'>
+                    <lightning-combobox
+                        name='Account Type'
+                        label='Account Type'
+                        value={selval}
+                        placeholder='Select Account Type'
+                        options={val.data.values}
+                        onchange={select}></lightning-combobox>
+                        <p>Selected value is :<b> {selval}</b></p>
+                    </div>
+            </template>
+        </p>
+    </lightning-card>
+    <lightning-card title='Combo Box for Profile Picklist' icon-name="custom:custom67">
+        <p class='slds-p-horizontal_small'>
+            <template if:true={pickvalarray}>
+                <div class='slds-m-around_medium'>
+                    <lightning-combobox
+                        name='Profile'
+                        label='Profile'
+                        value={selpick}
+                        placeholder='Select Profile'
+                        options={pickvalarray}
+                        onchange={picksel}></lightning-combobox>
+                        <p>Selected value is :<b> {selpick}</b></p>
+                    </div>
+            </template>
+        </p>
+    </lightning-card>
+    
+</template>

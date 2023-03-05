@@ -1,0 +1,26 @@
+<template>
+    <div class='slds-grid slds-wrap'>
+                       
+                            
+    <template if:true={carsFound} >
+        <template for:each={cars} for:item="car" >
+           <div class='slds-col slds-size_1-of-3' key={car.Id}>
+                
+                <c-car-tile car={car} oncarselect={carselecthandle} id={selectedCar}></c-car-tile>
+                
+            </div>
+
+        </template>
+    </template>
+</div>
+         <template if:false={carsFound}>
+            <div style="color:saddlebrown;
+                         border-bottom: 1px solid rosybrown ; display: flex; 
+                         justify-content: center; align-items: center;">
+                        
+                    NO CARS FOUND !!            
+            </div>
+        </template> 
+    
+    
+</template>

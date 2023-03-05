@@ -1,0 +1,34 @@
+.container
+{
+    border: 1px solid lightgrey;
+    padding: .5rem;
+    width: fit-content;
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    transition:all .5s ease;
+}
+
+.todo-comp
+{
+    background-color: rgb(154, 216, 30);
+       
+}
+
+.todo-comp:hover
+{
+     background-color: rgb(207, 228, 167);
+      border-radius: 16px;
+}
+
+.todo-up:hover
+{
+     background-color: rgb(240, 192, 192);
+      border-radius: 16px;
+}
+
+.todo-up
+{
+    background-color: rgb(228, 99, 99);
+}

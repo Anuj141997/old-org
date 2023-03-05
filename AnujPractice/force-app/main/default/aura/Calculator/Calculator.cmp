@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPagetypes">
+    <aura:attribute name='Result' type='integer'/>
+    <aura:attribute name='show' type='boolean' default='false'/>
+    <div class="slds-p-around_small">
+	<lightning:input name='inp1' aura:id='inp1' label='Enter first number' 
+                     placeholder='Enter first number'/>
+    <lightning:input name='inp2' aura:id='inp2' label='Enter Second number' 
+                     placeholder='Enter Second number'/>
+    
+    <lightning:button variant='base' label='Add' title='Addition' onclick='{!c.add}'/>
+    <br/>
+        <aura:if isTrue='{!v.show}'>
+        Result : {!v.Result} 
+            </aura:if>
+    </div>
+</aura:component>

@@ -1,0 +1,56 @@
+<template>
+    <lightning-card>
+        <h3 slot='title'>
+            <lightning-icon icon-name="standard:account" alternative-text="Account" size='small'></lightning-icon>
+            &nbsp;&nbsp;Insert Multiple Accounts
+        </h3>
+        <div slot='footer'>
+            <lightning-button label='Add Row' variant='brand' onclick={addrow}></lightning-button>
+            &nbsp;
+            <lightning-button label='Save' variant='brand' onclick={save}></lightning-button>
+        </div>
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+              <tr>
+                <th scope="col">
+                    <div class='slds-truncate' title='S.no'>S.No</div>
+                </th>
+                <th scope="col">
+                    <div class='slds-truncate' title='Account Name'>Account Name</div>
+                </th>
+                <th scope="col">
+                    <div class='slds-truncate' title='Account Industry'>Account Industry</div>
+                </th>
+                <th scope="col">
+                    <div class='slds-truncate' title='Account Phone'>Account Phone</div>
+                </th>  
+                <th scope="col">
+                    <div class='slds-truncate' title='Action'>Action</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+                <template for:each={accountrecord} for:item='acc' for:index='index'>
+                    <tr key={keyI}>
+                        <td>{index}</td>
+
+                        <td>
+                            <lightning-input name='accname' access-key={index} id={index} type='text' onchange={change} value={acc.Name}></lightning-input>
+                        </td>
+                        <td>
+                            <lightning-input name='accind' access-key={index} id={index} type='text' onchange={change} value={acc.Industry} ></lightning-input>
+                        </td>
+                        <td>
+                            <lightning-input name='accphn' access-key={index} id={index} type='text' onchange={change} value={acc.Phone}></lightning-input>
+                        </td>
+                        <td>
+                            <lightning-icon icon-name='utility:delete' alternative-text='Delete' variant='border-inverse' access-key={index} id={index}  onclick={del} size='small' ></lightning-icon>
+                        </td>
+                    </tr>
+                </template>
+              
+            </tbody>
+          </table>
+    </lightning-card>
+
+</template>

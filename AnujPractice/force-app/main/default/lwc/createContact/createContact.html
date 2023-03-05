@@ -1,0 +1,16 @@
+<template>
+
+    <lightning-card title='Contact Creator' icon-name="standard:contact">
+        <div class='slds-p-horizontal_small'>
+            <lightning-input label='First Name'  value={fname} onchange={change}></lightning-input>
+            <lightning-input label='Last Name'  value={lname} onchange={change}></lightning-input>
+            <lightning-input label='Phone'  value={phone} onchange={change}></lightning-input>
+            <c-look-up-comp onselect={handleselected}></c-look-up-comp>
+            
+            <div class='slds-m-top_medium slds-p-horizontal_small' align='center'>
+                <lightning-button label='Create Contact' onclick={con} variant='brand'></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+    
+</template>

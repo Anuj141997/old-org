@@ -1,0 +1,20 @@
+<apex:page controller="custctrl2">
+	<apex:form >
+	<apex:pageBlock title="Form">
+        <apex:pageBlockSection title="Setter Getter Method">
+    		  
+                <apex:inputtext label="Enter First Number" value="{!num1}"></apex:inputtext><br/><br/>
+                <apex:inputtext label="Enter Second Number" value="{!num2}"></apex:inputtext><br/><br/>
+                   	<apex:commandButton action="{!add}" value="Get Addition"/>
+                   	<apex:commandButton action="{!sub}" value="Get Subtraction"/>
+                   	<apex:commandButton action="{!mul}" value="Get Multiplication"/>
+            <apex:commandButton action="{!div}" value="Get Division"/><br/>
+                    Result :{!res}
+                      
+                
+          	
+        </apex:pageBlockSection>
+        
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

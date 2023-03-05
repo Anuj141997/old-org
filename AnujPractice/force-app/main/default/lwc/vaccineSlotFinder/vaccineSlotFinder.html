@@ -1,0 +1,19 @@
+<template>
+    
+    <lightning-card title='Vaccine Slot Finder' icon-name="custom:custom39">
+        <lightning-input type='search' placeholder='Pincode..' slot='actions'
+                            onkeyup={pinCodeHandler}>
+
+        </lightning-input>
+
+        <lightning-datatable data={centers} columns={dates} key-field='id' 
+        show-row-number-column hide-checkbox-column
+            if:true={hidemsg}>
+
+        </lightning-datatable>
+
+        <div if:false={hidemsg} class='slds-text-align_center slds-text-heading_medium'>
+            No Slots!! 
+        </div>
+    </lightning-card>
+</template>

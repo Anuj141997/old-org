@@ -1,0 +1,18 @@
+<template>
+    <lightning-card>
+        <h3 slot='title'>
+            <lightning-icon icon-name="standard:contact" alternative-text="Contact" size='small'></lightning-icon>
+            &nbsp;Mass Delete Contacts
+        </h3>
+        <div slot='footer'>
+            <lightning-button label='Delete Selected records' variant='destructive' onclick={delrec}></lightning-button>
+            <div>{msg}</div>
+        </div>
+        <p class='slds-p-horizontal_small'>
+            <lightning-datatable data={contacts.data} columns={cols} key-field="id" onrowselection={selrec}>
+
+            </lightning-datatable>
+        </p>
+    </lightning-card>
+    
+</template>

@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title='Calculator'>
+        
+           <!-- <lightning-icon icon-name="utility:connected_apps" size="small"></lightning-icon>-->        
+              
+        <div slot="footer">
+                <!--<lightning-badge label={result}></lightning-badge>-->
+                <c-cal-child r={sum} onclickme={m}></c-cal-child> 
+                <br>
+                <lightning-button  variant='brand' label="Add" title='Addition' onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+                    &nbsp;
+                <lightning-button  variant='brand' label="Date"  onclick={handledate}></lightning-button>
+
+        </div>
+        <p class="slds-p-horizontal_small">
+            <lightning-input type='number' value={fn} name='first' label='Enter First number' onchange={change}></lightning-input>
+            <lightning-input  type='number' value={sn} name='second' label='Enter Second number' onchange={change}></lightning-input>
+           <br>
+           {ms} 
+        </p>
+
+    </lightning-card>
+</template>

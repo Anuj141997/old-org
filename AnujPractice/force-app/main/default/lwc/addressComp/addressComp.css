@@ -1,0 +1,24 @@
+.container {
+    border: 1px rgb(168, 166, 166) solid;
+    border-radius: 5px;
+    background-color: rgb(253, 253, 253);
+    margin:5px;
+    padding: 1rem;
+    max-width: fit-content;
+    display: flex;
+    cursor: pointer;
+}
+
+
+
+.container:hover > p{
+    color: hotpink;
+}
+
+
+p:hover {
+    color: hotpink;
+}
+a:active {
+    color: rgb(1, 1, 10);
+}

@@ -1,0 +1,11 @@
+<template>
+    <lightning-card  title="Hello">
+        <p class="slds-p-horizontal_small">Hello {msg}</p>
+        <p slot="footer">
+            <lightning-input  name='msg' label='Enter the message' onchange={change}></lightning-input>
+        </p>
+        <div onclickme={hn}>
+            <c-calculatorcomp ></c-calculatorcomp>
+        </div>
+    </lightning-card>
+</template>

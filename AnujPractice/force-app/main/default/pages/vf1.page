@@ -1,0 +1,32 @@
+<apex:page >
+    <apex:pageBlock title="My VF1">
+        <apex:pageBlockSection title="Section1">
+    		<h1>
+       			 Hello
+   			</h1>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="Section2">
+        
+        	<h1>
+           		 Welcome to VF
+            </h1>
+            <br/>
+            <h2>
+                Today date : {!today()}
+            </h2>
+            <br/>
+            <h2>
+                Name :{!$User.FirstName} {!$User.LastName}
+            </h2><br/>
+            <h2>
+                User Email :{!$User.Email}
+            </h2><br/>
+            <h2>
+                User name :{!$User.Username} 
+            </h2>
+            
+        </apex:pageBlockSection>
+
+    </apex:pageBlock>
+    </apex:page>

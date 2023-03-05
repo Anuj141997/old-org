@@ -1,0 +1,8 @@
+<apex:page showHeader="false"
+           standardStylesheets="false"
+           applyBodyTag="false" 
+           applyHtmlTag="false"
+           renderAs="pdf">
+    
+    <apex:outputText value="hi">{!$Label.F_Name} :&nbsp; </apex:outputText>
+</apex:page>

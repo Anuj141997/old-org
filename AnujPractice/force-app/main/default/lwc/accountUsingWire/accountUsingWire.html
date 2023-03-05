@@ -1,0 +1,32 @@
+<template>
+       <lightning-card title='Accounts' >
+        
+        <template for:each={accounts.data} for:item='account' if:true={accounts.data}>
+
+            <div key={account.Id} class='slds-m-top_medium slds-m-bottom_x-small' draggable="true"
+            data-item={account.Id} ondragstart={dragstart}>  
+                <div class="slds-p-around_medium lgc0bg ">
+                  
+                 <lightning-tile label={account.Name} type='media' class='border'>
+                     <lightning-icon slot='media' icon-name='standard:account'></lightning-icon>
+                          <lightning-formatted-text value='Type'></lightning-formatted-text>
+                           :&nbsp;
+                        <lightning-formatted-text value={account.Type}></lightning-formatted-text>
+                        <br>
+                        <lightning-formatted-text value='Annual Revenue'></lightning-formatted-text>
+                            :&nbsp;
+                        <lightning-formatted-number format-style="currency" currency-code='USD' value={account.AnnualRevenue}></lightning-formatted-number>
+                       <br> <lightning-badge label={account.Rating}></lightning-badge>
+
+                    </lightning-tile>
+                </div>
+            </div>
+        </template>
+    </lightning-card>
+    <!-- <template for:each={beers.data} for:item='b' if:true={beers.data}>
+        <div key={b.Id}>
+            Name : {b.Name}
+        </div> -->
+        
+    <!-- </template> -->
+</template>

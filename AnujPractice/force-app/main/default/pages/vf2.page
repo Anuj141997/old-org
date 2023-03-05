@@ -1,0 +1,30 @@
+<apex:page controller="custcntrl1">
+
+	<apex:pageBlock title="Form">
+        <apex:pageBlockSection title="Setter Getter Method">
+    		<apex:form >   
+ 					<table>
+                        <tr>
+                            <td><apex:inputtext label="Enter First name" value="{!fname}"></apex:inputtext></td>
+                        </tr>
+                        <tr>
+                            <td><apex:inputtext label="Enter Last name" value="{!lname}"></apex:inputtext></td>
+                        </tr>
+                        <tr>
+                        	<td>
+                            	<apex:commandButton action="{!fullname}" value="Get Full Name"/>
+                            </td>
+                        </tr>
+                        <tr colspan='2'>
+                        	<td>
+                                <apex:outputText value="{!full}" />
+                            </td>
+                        </tr>
+                </table>   
+                
+          	</apex:form>
+        </apex:pageBlockSection>
+        
+    </apex:pageBlock>
+
+</apex:page>

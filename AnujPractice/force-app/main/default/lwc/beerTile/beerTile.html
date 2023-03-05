@@ -1,0 +1,23 @@
+<template>
+    <template if:true={beerRec}>
+    <lightning-card title={beerRec.Name} icon-name="custom:custom50">
+        <div class='slds-m-around_small'>
+            <p>
+                <img src={beerRec.Image__c} width='150' height='150'/>
+            </p>
+            <p>
+                <strong>Beer Id : </strong>{beerRec.Id__c}<br/>
+                <strong>Alcohol % : </strong>{beerRec.Alcohol__c}<br/>
+                <strong>Price : </strong>{beerRec.Price__c}<br/>
+                <strong>Brewery Name : </strong>{beerRec.brewery_Name__c}
+            </p>
+            <p class='slds-m-around_small'>
+                <lightning-button label='Add to Cart' variant='brand' onclick={handleclick}>
+
+                </lightning-button>
+            </p>
+        </div>
+    </lightning-card>
+    </template>
+    
+</template>

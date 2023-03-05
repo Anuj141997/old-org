@@ -1,0 +1,60 @@
+<template>
+       
+    
+    <lightning-card if:true={showRec}>
+    
+        <div class='header'></div>
+       
+        <div class='main'>
+           
+             <div class='recommend'></div>
+        </div>
+                
+            <div class='bottom'>
+                 <template if:false={showBut}>
+                    
+
+                         
+                         <div class='like'>
+                             <lightning-button-icon-stateful icon-name="utility:like"
+                             selected={likestate} 
+                             onclick={handleLikeButtonClick}
+                             alternative-text="Like"
+                             title='Like'>
+                            </lightning-button-icon-stateful>
+                            &nbsp;
+                            <lightning-button-icon-stateful icon-name="utility:dislike"
+                            selected={dislikestate} 
+                            onclick={handleLikeButtonClick}
+                            alternative-text="Like"
+                            title='Dislike'>
+                        </lightning-button-icon-stateful>
+                        
+                        
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   <c-five-star-rating value={ratingValue} onratingchange={handleRatingChanged} >
+
+                   </c-five-star-rating>
+                </div>
+
+                 </template>
+               
+                 <template if:true={showBut}>
+
+                    <div class='but'>
+                        <lightning-button class='slds-m-right_medium' variant='success'
+                                            onclick={accept}  label='Accept'></lightning-button>
+                         <lightning-button variant="destructive" label="Reject"
+                                             title="Rejection" onclick={reject}
+                                              class="slds-m-left_x-small"></lightning-button>
+
+                    </div>
+
+                 </template>
+                
+            </div>
+    </lightning-card>
+    
+</template>

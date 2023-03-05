@@ -1,0 +1,39 @@
+<apex:page controller="custctrl3" >
+    
+    	<apex:pageBlock title="ADD CONTACT">
+            <apex:form >
+            <apex:pageBlockSection title="Fill Details">
+            	
+                	<apex:inputText label="Enter First Name " value="{!con.firstname}"/>
+                                	<apex:inputText label="Enter Last Name " value="{!con.lastname}"/>
+                                	<apex:inputText label="Enter Email ID " value="{!con.email}"/>
+                                	<apex:inputText label="Enter Phone number " value="{!con.phone}"/>
+                <br/><br/>
+                <apex:commandButton action="{!cont}" value="Add Contact"/>
+                <apex:pagemessages />    
+                
+                      </apex:pageBlockSection>
+            </apex:form>
+      		<apex:pageBlockSection title="Contact Records">
+               <apex:form > 
+                <apex:commandButton action="{!dis}" value="Display Contact records"/><br/><br/>
+               
+                   <apex:pageblocktable value="{!cl}" var="a">
+                	
+                       <apex:column value="{!a.Firstname}"/>
+                       	<apex:column value="{!a.Lastname}"/>
+                       	<apex:column value="{!a.email}"/>
+                       	<apex:column value="{!a.phone}"/>                       
+                    	<apex:column >
+                            <apex:commandLink action="{!del}" value="Delete">
+                            <apex:param name="cofn" value="{!a.lastname}" assignTo="{!confn}"/>
+                            </apex:commandLink>
+                       </apex:column>
+                </apex:pageblocktable>
+             </apex:form>	
+          </apex:pageBlockSection>  
+               
+        </apex:pageBlock>
+      
+
+</apex:page>

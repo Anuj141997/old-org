@@ -1,0 +1,16 @@
+<apex:page standardController="Account" recordSetVar="AccountList" lightningStylesheets="true">
+<apex:form >
+    <apex:pageBlock title="Account List">
+        <apex:pageblockTable value="{!AccountList}" var="a">
+            <apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.Industry}"/>
+            <apex:column value="{!a.Rating }"/>
+            <apex:column value="{!a.Website}"/>
+                
+        </apex:pageblockTable>
+          <apex:commandLink action="{!Previous}">Previous</apex:commandlink>
+                <apex:commandLink action="{!next}">Next</apex:commandlink>
+    
+    </apex:pageBlock>
+    </apex:form>
+ </apex:page>

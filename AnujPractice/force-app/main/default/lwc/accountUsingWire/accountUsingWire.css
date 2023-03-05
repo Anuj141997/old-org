@@ -1,0 +1,13 @@
+:host {
+    --sds-c-badge-color-background: #BB00FF;
+    --sds-c-badge-text-color: #F4F7F9;
+    --sds-c-badge-radius-border: 4px;
+  }
+.border
+{
+  border-radius: 25px;
+  background: #78dca0;
+  padding: 15px;
+  width: 300px;
+  height: 120px;
+}
